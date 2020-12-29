@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Create Action to call  plan type view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_project_window">
+        <field name="name">M01 Project Action </field>
+        <field name="res_model">m01.project</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+    
+    <record model="ir.actions.act_window" id="m01.action_show_sub_project_window">
+        <field name="name">M01 Project Action </field>
+        <field name="res_model">m01.sub_project</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+
+    <menuitem name="โครงการ" id="m01.menu_main_project" parent="m01.menu_root"/>
+
+    <!-- Menu Item Project -->    
+    <menuitem name="โครงการหลัก" id="m01.menu_project" parent="m01.menu_main_project"
+             action="m01.action_show_project_window"/>
+    <menuitem name="โครงการรอง" id="m01.menu_sub_project" parent="m01.menu_main_project"
+             action="m01.action_show_sub_project_window"/>
+</odoo>

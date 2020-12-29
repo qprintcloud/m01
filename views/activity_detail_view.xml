@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Create Action to call view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_activity_detail_window">
+        <field name="name">M01 Activity Action </field>
+        <field name="res_model">m01.activity_detail</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+
+    <record model="ir.ui.view" id="activity_view_tree">
+        <field name="name">Activity View Tree</field>
+        <field name="model">m01.activity_detail</field>
+        <field name="arch" type="xml">
+            <tree string="รายละเอียดกิจกรรม">
+                <field name="main_activity_id"/>
+                <field name="period"/>
+                <field name="report_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="activity_view_form">
+        <field name="name">Activity View Tree</field>
+        <field name="model">m01.activity_detail</field>
+        <field name="arch" type="xml">
+            <h1 style="color:blue;">รายละเอียดการบันทึกกิจกรรม</h1>
+            <form string="บันทึกกิจกรรม">
+                <group colspan="3">
+                    <group name="left">
+                        <field name="activity_category_id"/>
+                        <field name="main_activity_id"/>
+                        <field name="unit"/>
+                        <field name="volume"/>
+                    </group>
+                    <group name="right">
+                        <field name="report_date"/>
+                    </group>
+                    <field name="period"/>    
+                </group>
+                <notebook>
+                    <page string="รายละเอียดกิจกรรม">
+                        <group>
+                            <group name="left">
+                                <field name="accumulate"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="รายงานกิจกรรม">
+                        <field name="activity_report"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+
+    
+
+    <!-- Menu Item Activity -->    
+    <menuitem name="รายละเอียดกิจกรรม" id="m01.menu_activity_detail" parent="m01.menu_main_target"
+             action="m01.action_show_activity_detail_window"/>
+
+</odoo>

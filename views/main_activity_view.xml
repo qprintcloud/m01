@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Create Action to call main activity view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_main_activity_window">
+        <field name="name">M01 Activity Main Action </field>
+        <field name="res_model">m01.main_activity</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+
+    <!-- Menu Root -->    
+    <menuitem name="M01" id="m01.menu_root" />
+    <menuitem name="เป้าหมายและผลการปฏิบัติงาน" id="m01.menu_main_target" parent="m01.menu_root" />
+
+    
+    <!-- Menu Item Main Activity -->    
+    <menuitem name="กิจกรรมย่อย" id="m01.menu_main_activity" parent="m01.menu_main_target" sequence="2"
+             action="m01.action_show_main_activity_window"/>
+</odoo>

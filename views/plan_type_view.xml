@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Create Action to call  plan type view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_plan_type_window">
+        <field name="name">M01 Plan Type Action </field>
+        <field name="res_model">m01.plan_type</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+    
+    <!-- Menu Item Main Activity -->    
+    <menuitem name="แผนงาน" id="m01.menu_plan_type" parent="m01.menu_root" sequence="0"
+             action="m01.action_show_plan_type_window"/>
+</odoo>

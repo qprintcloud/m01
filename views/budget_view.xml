@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Create Action to call  plan type view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_budget_type_window">
+        <field name="name">M01 Budget Type Action </field>
+        <field name="res_model">m01.budget_type</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+     <!-- Create Action to call  plan type view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_budget_window">
+        <field name="name">M01 Budget Action </field>
+        <field name="res_model">m01.budget</field>
+        <field name="view_mode">tree,form,graph</field>
+   	</record>
+
+    <record model="ir.ui.view" id="budget_view_tree">
+        <field name="name">Budget View Tree</field>
+        <field name="model">m01.budget</field>
+        <field name="arch" type="xml">
+            <tree string="งบประมาณ">
+                <field name="budget_type_id"/>
+                <field name="budget_amount"/>
+                <field name="disburse_report_date"/>
+                <field name="disburse_accumulate"/>
+                <field name="percentage_disburse"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="budget_view_graph">
+        <field name="name">Budget View Graph</field>
+        <field name="model">m01.budget</field>
+        <field name="arch" type="xml">
+            <graph string="Budget Graph">
+                <field name="budget_type_id"/>
+                <field name="disburse_report_date" interval="day" />
+                <field name="percentage_disburse" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    
+    <!-- Define Main Menu For Budget -->
+    <menuitem name="งบประมาณ" id="m01.menu_main_budget" parent="m01.menu_root"/>
+
+    <!-- Menu Child Item Budget Type -->    
+    <menuitem name="ประเภทแผนงาน" id="m01.menu_budget_type" parent="m01.menu_main_budget" 
+             action="m01.action_show_budget_type_window"/>
+    <menuitem name="แผนงาน" id="m01.menu_budget" parent="m01.menu_main_budget" 
+             action="m01.action_show_budget_window"/>
+</odoo>
+

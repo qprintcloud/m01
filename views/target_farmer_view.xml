@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Create Action to call  plan type view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_target_farmer_window">
+        <field name="name">M01 Target Farmer Action </field>
+        <field name="res_model">m01.target_farmer</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+    
+    <!-- Menu Item Problem -->    
+    <menuitem name="เกษตรกรเป้าหมาย" id="m01.menu_target_farmer" parent="m01.menu_root"
+             action="m01.action_show_target_farmer_window"/>
+</odoo>

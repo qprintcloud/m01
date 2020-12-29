@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Create Action to call  activity category view -->    
+    <record model="ir.actions.act_window" id="m01.action_show_activity_category_window">
+        <field name="name">M01 Activity Category Action </field>
+        <field name="res_model">m01.activity_category</field>
+        <field name="view_mode">tree,form</field>
+   	</record>
+    
+    <!-- Menu Item Main Activity -->    
+    <menuitem name="ประเภทกิจกรรม" id="m01.menu_activity_category" parent="m01.menu_main_target" sequence="1"
+             action="m01.action_show_activity_category_window"/>
+</odoo>
